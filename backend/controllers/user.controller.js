@@ -7,7 +7,7 @@ import cloudinary from "../utils/cloudinary.js";
 export const register = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, password, role } = req.body;
-    // console.log(fullname, email, phoneNumber, password, role)
+
     if (!fullname || !email || !phoneNumber || !password || !role) {
       return res.status(400).json({
         message: "Something is missing",
@@ -47,14 +47,14 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password, role } = req.body;
-    // console.log(email, password, role );
+
     if (!email || !password || !role) {
       return res.status(400).json({
         message: "Something is missing",
         success: false,
       });
     }
-    // console.log(error);
+
     let user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({
@@ -122,7 +122,7 @@ export const logout = async (req, res) => {
 export const updateProfile = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, bio, skills } = req.body;
-    // console.log(fullname, email, phoneNumber, bio, skills)
+
     const file = req.file;
 
     const fileUri = getDataUri(file);
