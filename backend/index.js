@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOption ={
-    origin :'https://deploy-mern-1whq.vercel.app',
+    origin :'dream-job-portal-1.vercel.app',
     metthods:["POST", "GET", "PUT"],
     credentials:true
 }
